@@ -1,0 +1,26 @@
+{
+  "name": "algs",
+  "version": "1.0.0",
+  "description": "Algorithms",
+  "repository": "ibqn/algs",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server",
+    "test": "tsc && mocha test src/**.spec.js",
+    "tsc": "tsc",
+    "tsc:w": "tsc --watch"
+  },
+  "author": "ibqn",
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.2.2",
+    "mathjs": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.35",
+    "@types/mocha": "^2.2.39",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "typescript": "^2.1.6"
+  }
+}
