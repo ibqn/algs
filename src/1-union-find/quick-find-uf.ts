@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
 
-import * as yargs from 'yargs';
-import * as chalk from 'chalk';
+const readline = require('readline');
+const fs = require('fs')
+const yargs = require('yargs');
+const chalk = require('chalk');
 
 
 /**
@@ -106,21 +108,30 @@ class QuickFindUF {
 const main = function() {
   const argv = yargs
     .usage('Usage: [options]')
-    .alias('s', 'size')
-    .default('s', 10)
-    .nargs('s', 1)
-    .describe('s', 'Specify the number of pairs of integers to read from file.')
-    .example('$0 -s 10 -f tiny-uf.txt', 'Loads ten pairs of integers from file.')
+    .example('$0 -f tiny-uf.txt', 'Loads ten pairs of integers from file.')
     .alias('f', 'file')
     .nargs('f', 1)
-    .default('f', 'tiny-uf.txt')
-    .describe('f', 'Reads in a sequence of pairs of integers (between 0 and n-1) from file.')
+    .default('f', 'tinyUF.txt')
+    .describe('f', 'Specify file with pairs of integers')
     .demandOption(['f'])
     .help('h')
     .alias('h', 'help')
     .epilog('copyright 2017')
     .argv;
 
+  const rl = readline.createInterface({
+    input: fs.createReadStream(argv.file)
+  });
+
+  rl.on('line', (line) => {
+    console.log(`Line from file: ${line}`);
+  });
+  console.log('done');
+
+  let content = fs.readFileSync(argv.file, {encoding: 'utf8'});
+  content.split(/\r?\n/g).forEach((e)=>{
+    console.log(e);
+  });
 }
 
 // Main loop
