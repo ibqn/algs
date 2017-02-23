@@ -99,8 +99,28 @@ class QuickFindUF {
     return this._count;
   }
 
-  find(): number {
-    return 1;
+  find(p: number): number {
+    return this.id[p];
+  }
+
+  connected(p: number, q: number): boolean {
+    return this.id[p] === this.id[q];
+  }
+
+  union(p: number, q: number): void {
+    const pId = this.id[p];
+    const qId = this.id[q];
+
+    if(pId === qId) {
+      return;
+    }
+
+    for(let i = 0; i < this.id.length; i ++) {
+      if(this.id[i] === pId) {
+        this.id[i] = qId;
+      }
+    }
+    this._count --;
   }
 }
 
@@ -108,7 +128,7 @@ class QuickFindUF {
 const main = function() {
   const argv = yargs
     .usage('Usage: [options]')
-    .example('$0 -f tiny-uf.txt', 'Loads ten pairs of integers from file.')
+    .example('$0 -f tinyUF.txt', 'Loads pairs of integers from file')
     .alias('f', 'file')
     .nargs('f', 1)
     .default('f', 'tinyUF.txt')
@@ -116,22 +136,35 @@ const main = function() {
     .demandOption(['f'])
     .help('h')
     .alias('h', 'help')
-    .epilog('copyright 2017')
+    .epilog(
+      'union–find data type (also known as disjoint-sets data type) example'
+    )
     .argv;
 
-  const rl = readline.createInterface({
-    input: fs.createReadStream(argv.file)
-  });
+  const content = fs.readFileSync(argv.file, {encoding: 'utf8'});
+  const data = content.split(/\r?\n/g);
 
-  rl.on('line', (line) => {
-    console.log(`Line from file: ${line}`);
-  });
-  console.log('done');
+  const n = +data[0]; // size of the union-find array
+  const uf = new QuickFindUF(n);
 
-  let content = fs.readFileSync(argv.file, {encoding: 'utf8'});
-  content.split(/\r?\n/g).forEach((e)=>{
-    console.log(e);
-  });
+  console.log(`size of the disjoint-sets data type is ${n}`);
+
+  for(let i = 1; i < data.length; i ++) {
+    const pq = data[i].split(' ');
+    if(pq.length !== 2) {
+      continue;
+    }
+
+    const p = +pq[0];
+    const q = +pq[1];
+    if(uf.connected(p, q)) {
+      console.log('.');
+      continue;
+    }
+    uf.union(p, q);
+    console.log(p + "--" + q);
+  }
+  console.log(uf.count() + " components");
 }
 
 // Main loop
