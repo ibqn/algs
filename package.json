@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "lite-server",
-    "test": "tsc && mocha test src/**.spec.js",
+    "test": "tsc && mocha src/**.spec.js",
     "tsc": "tsc",
     "tsc:w": "tsc --watch"
   },
