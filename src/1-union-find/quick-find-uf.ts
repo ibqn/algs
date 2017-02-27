@@ -6,6 +6,8 @@ const fs = require('fs')
 const yargs = require('yargs');
 const chalk = require('chalk');
 
+import { StdData } from '../std-data';
+
 
 /**
  *  The {@code QuickFindUF} class represents a <em>union–find data type</em>
@@ -142,21 +144,16 @@ const main = function() {
     .argv;
 
   const content = fs.readFileSync(argv.file, {encoding: 'utf8'});
-  const data = content.split(/\r?\n/g);
+  const stdData = new StdData(content);
 
-  const n = +data[0]; // size of the union-find array
+  const n = +stdData.get(); // size of the union-find array
   const uf = new QuickFindUF(n);
 
   console.log(`size of the disjoint-sets data type is ${n}`);
 
-  for(let i = 1; i < data.length; i ++) {
-    const pq = data[i].split(' ');
-    if(pq.length !== 2) {
-      continue;
-    }
-
-    const p = +pq[0];
-    const q = +pq[1];
+  while(!stdData.empty()) {
+    const p = +stdData.get();
+    const q = +stdData.get();
     if(uf.connected(p, q)) {
       console.log('.');
       continue;
