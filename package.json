@@ -8,7 +8,8 @@
     "start": "lite-server",
     "test": "tsc && mocha src/**.spec.js",
     "tsc": "tsc",
-    "tsc:w": "tsc --watch"
+    "tsc:w": "tsc --watch",
+    "lint": "tslint  -t verbose -c tslint.json ./src/**/*.ts"
   },
   "author": "ibqn",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "@types/yargs": "^6.6.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
+    "tslint": "^4.5.0",
     "typescript": "^2.2.1"
   }
 }
