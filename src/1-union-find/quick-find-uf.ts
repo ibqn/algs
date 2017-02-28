@@ -2,7 +2,7 @@
 
 
 const readline = require('readline');
-const fs = require('fs')
+const fs = require('fs');
 const yargs = require('yargs');
 const chalk = require('chalk');
 
@@ -92,7 +92,7 @@ class QuickFindUF {
     this._count = n;
     this.id = new Array(n);
 
-    for(let i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) {
       this.id[i] = i;
     }
   }
@@ -113,12 +113,12 @@ class QuickFindUF {
     const pId = this.id[p];
     const qId = this.id[q];
 
-    if(pId === qId) {
+    if (pId === qId) {
       return;
     }
 
-    for(let i = 0; i < this.id.length; i ++) {
-      if(this.id[i] === pId) {
+    for (let i = 0; i < this.id.length; i ++) {
+      if (this.id[i] === pId) {
         this.id[i] = qId;
       }
     }
@@ -151,18 +151,18 @@ const main = function() {
 
   console.log(`size of the disjoint-sets data type is ${n}`);
 
-  while(!stdData.empty()) {
+  while (!stdData.empty()) {
     const p = +stdData.get();
     const q = +stdData.get();
-    if(uf.connected(p, q)) {
+    if (uf.connected(p, q)) {
       console.log('.');
       continue;
     }
     uf.union(p, q);
-    console.log(p + "--" + q);
+    console.log(p + '--' + q);
   }
-  console.log(uf.count() + " components");
-}
+  console.log(uf.count() + ' components');
+};
 
 // Main loop
 if (require.main === module) {
