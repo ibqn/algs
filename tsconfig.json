@@ -10,19 +10,15 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "sourceMap":  true,
+    "rootDir": ".",
     "typeRoots": [
       "node_modules/@types"
     ]
   },
 
-  "compileOnSave": false,
-
   "filesGlob": [
-    "src/**/*.ts"
-  ],
-
-  "exclude": [
-    "node_modules",
-    "!node_modules/@types"
+    "src/**/*.ts",
+    "!node_modules/**",
+    "node_modules/@types/**"
   ]
 }
