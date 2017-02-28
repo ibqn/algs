@@ -1,5 +1,3 @@
-
-
 export class StdData {
   private i = 0;
   private data: string[];
