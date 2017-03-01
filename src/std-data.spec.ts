@@ -1,8 +1,8 @@
-import { expect } from "chai";
-import { StdData } from "./std-data";
+import { expect } from 'chai';
+import { StdData } from './std-data';
 
- describe('std data tests', () => {
-  const content = "1 2 3\n4 5\r\n6 7\n 8 9\n10"
+describe('std data tests', () => {
+  const content = '1 2 3\n4 5\r\n6 7\n 8 9\n10';
 
   const stdData = new StdData(content);
 
@@ -27,4 +27,4 @@ import { StdData } from "./std-data";
     expect(stdData.empty()).to.be.true;
   });
 
- });
+});

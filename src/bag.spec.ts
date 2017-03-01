@@ -1,7 +1,7 @@
-import { expect } from "chai";
-import { Bag } from "./bag";
+import { expect } from 'chai';
+import { Bag } from './bag';
 
- describe('bag tests', () => {
+describe('bag tests', () => {
   const bag = new Bag<number>();
 
   it('should be intialized', () => {
@@ -9,4 +9,4 @@ import { Bag } from "./bag";
     expect(bag.isEmpty()).to.be.true;
     expect(bag.size()).to.be.equal(0);
   });
- });
+});
