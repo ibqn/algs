@@ -1,4 +1,3 @@
-
 class Node<Item> {
   item:  Item;
   next: Node<Item>;

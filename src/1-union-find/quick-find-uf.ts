@@ -1,10 +1,7 @@
-#!/usr/bin/env node
-
-
-const readline = require('readline');
-const fs = require('fs');
-const yargs = require('yargs');
-const chalk = require('chalk');
+import * as readline from 'readline';
+import * as fs from 'fs';
+import * as yargs from 'yargs';
+import * as chalk from 'chalk';
 
 import { StdData } from '../std-data';
 
