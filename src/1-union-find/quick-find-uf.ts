@@ -8,10 +8,10 @@ import { StdData } from '../std-data';
 
 class QuickFindUF {
   private id: number[];
-  private _count: number;
+  private cnt: number;
 
   constructor(n: number) {
-    this._count = n;
+    this.cnt = n;
     this.id = new Array(n);
 
     for (let i = 0; i < n; i ++) {
@@ -20,7 +20,7 @@ class QuickFindUF {
   }
 
   count(): number {
-    return this._count;
+    return this.cnt;
   }
 
   find(p: number): number {
@@ -44,7 +44,7 @@ class QuickFindUF {
         this.id[i] = qId;
       }
     }
-    this._count --;
+    this.cnt --;
   }
 }
 
