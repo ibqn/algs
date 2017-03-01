@@ -9,10 +9,10 @@ import { StdData } from '../std-data';
 class UF {
   private parent: number[];
   private rank: number[];
-  private _count: number;
+  private cnt: number;
 
   constructor(n: number) {
-    this._count = n;
+    this.cnt = n;
     this.parent = new Array(n);
     this.rank = new Array(n);
 
@@ -23,7 +23,7 @@ class UF {
   }
 
   count(): number {
-    return this._count;
+    return this.cnt;
   }
 
   root(p: number): number {
@@ -55,7 +55,7 @@ class UF {
       this.rank[qId] ++;
     }
 
-    this._count --;
+    this.cnt --;
   }
 }
 
