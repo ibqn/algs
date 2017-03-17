@@ -10,6 +10,10 @@ export class StdData {
     return this.data[this.i++];
   }
 
+  get_all(): string[] {
+    return this.data;
+  }
+
   empty(): boolean {
     return this.i === this.data.length;
   }

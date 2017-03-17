@@ -17,7 +17,6 @@ describe('std data tests', () => {
   });
 
   it('test get data', () => {
-
     for (let i = 1; i <= 10; i ++) {
       expect(stdData.empty()).to.be.false;
       expect(stdData.get()).to.be.equal('' + i);
