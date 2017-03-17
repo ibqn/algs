@@ -24,7 +24,7 @@ class ThreeSumFast {
     let hi: number = a.length - 1;
     let mid: number;
     while (lo <= hi) {
-      mid = (hi + lo) / 2 | 0;
+      mid = math.floor((hi + lo) / 2);
       if (val < a[mid]) {
         hi = mid - 1;
       } else if (val > a[mid]) {
@@ -38,7 +38,7 @@ class ThreeSumFast {
 
   count(a: number[]): number {
     // sort an array numerically
-    a = a.sort((i, j) => (i - j));
+    a = a.sort((i, j) => i - j);
     const n = a.length;
 
     if(this.containsDuplicates(a)) {
