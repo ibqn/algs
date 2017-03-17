@@ -7,14 +7,22 @@ import { StdData } from '../std-data';
 
 
 class ThreeSum {
-  constructor() {
-
-  }
+  constructor() {}
 
   count(a: number[]): number {
-    return 1;
+    const n = a.length;
+    let count = 0;
+    for (let i = 0; i < n; i ++) {
+      for (let j = i + 1; j < n; j ++) {
+        for (let k = j + 1; k < n; k ++) {
+          if (a[i] + a[j] + a[k] === 0) {
+            count ++;
+          }
+        }
+      }
+    }
+    return count;
   }
-
 }
 
 // Main code
@@ -39,10 +47,14 @@ const main = function() {
   const content = fs.readFileSync(argv.file, {encoding: 'utf8'});
   const stdData = new StdData(content);
 
-  const n = +stdData.get(); // size of the quick-union array
-  const ts = new ThreeSum();
+  const data: number[] = stdData.get_all().map(d => +d);
+  const n = data.length;
+  console.log(`size of the data set is ${n}`);
 
-  console.log(`size of the disjoint-sets data type is ${n}`);
+  const ts = new ThreeSum();
+  const count = ts.count(data);
+
+  console.log(`${count} triples sums to zero`);
 };
 
 // Main loop
