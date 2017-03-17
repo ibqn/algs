@@ -6,7 +6,7 @@
 npm install
 npm test
 ```
-## 1 Union find
+## 1 Union Find
 
 The test data (i.e. the files `tinyUF.txt`, `mediumUF.txt` and `largeUF.txt`) can be obtained using one line of bash:
 ```
