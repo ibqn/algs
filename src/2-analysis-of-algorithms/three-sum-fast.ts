@@ -2,9 +2,9 @@ import * as readline from 'readline';
 import * as fs from 'fs';
 import * as yargs from 'yargs';
 import * as chalk from 'chalk';
-import * as math from 'mathjs';
 
 import { StdData } from '../std-data';
+import { BinarySearch } from '../binary-search';
 
 
 class ThreeSumFast {
@@ -19,29 +19,12 @@ class ThreeSumFast {
     return false;
   }
 
-  private binarySearch(a: number[], val: number): number {
-    let lo: number = 0;
-    let hi: number = a.length - 1;
-    let mid: number;
-    while (lo <= hi) {
-      mid = math.floor((hi + lo) / 2);
-      if (val < a[mid]) {
-        hi = mid - 1;
-      } else if (val > a[mid]) {
-        lo = mid + 1;
-      } else {
-        return mid;
-      }
-    }
-    return -1;
-  }
-
   count(a: number[]): number {
     // sort an array numerically
     a = a.sort((i, j) => i - j);
     const n = a.length;
 
-    if(this.containsDuplicates(a)) {
+    if (this.containsDuplicates(a)) {
       console.log('dups are present');
       process.exit(1);
     }
@@ -49,7 +32,7 @@ class ThreeSumFast {
     let count = 0;
     for (let i = 0; i < n; i ++) {
       for (let j = i + 1; j < n; j ++) {
-        let k = this.binarySearch(a, -(a[i] + a[j]));
+        let k = BinarySearch.indexOf(a, -(a[i] + a[j]));
         if (k > j) {
           count ++;
         }
