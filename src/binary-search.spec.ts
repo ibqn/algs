@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { BinarySearch } from './binary-search';
 
+
 describe('binary seach tests', () => {
   let a = [1, 10, 9, 2, 22, 8, 7, 3, 4, 5, 6];
   // sort test array numerically

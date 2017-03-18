@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { Bag } from './bag';
 
+
 describe('bag tests', () => {
   const bag = new Bag<number>();
 
