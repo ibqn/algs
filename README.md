@@ -19,3 +19,7 @@ bash -c 'for s in tiny medium large; do curl -O "http://algs4.cs.princeton.edu/1
 ```
 bash -c 'for s in 1K 2K 4K 8K 16K 32K 1M; do curl -O "http://algs4.cs.princeton.edu/14analysis/${s}ints.txt"; done'
 ```
+
+```
+bash -c 'for s in tiny large; do for m in T W; do curl -O "http://algs4.cs.princeton.edu/11model/${s}${m}.txt"; done; done'
+```
