@@ -31,7 +31,10 @@ size of the data set is 2000
 ```
 bash -c 'for s in {1,2,4,8,16,32}K 1M; do curl -O "http://algs4.cs.princeton.edu/14analysis/${s}ints.txt"; done'
 ```
-
+Data files:   
+* [tinyW.txt](http://algs4.cs.princeton.edu/11model/tinyW.txt) and [tinyT.txt](http://algs4.cs.princeton.edu/11model/tinyT.txt)
+* [largeW.txt](http://algs4.cs.princeton.edu/11model/largeW.txt) and [largeT.txt](http://algs4.cs.princeton.edu/11model/largeT.txt)
+To download them at once the following bash one-liner can be used: 
 ```
 bash -c 'for s in {tiny,lange}{T,W}; do curl -O "http://algs4.cs.princeton.edu/11model/${s}${m}.txt"; done'
 ```
