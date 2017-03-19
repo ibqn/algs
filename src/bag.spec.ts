@@ -10,4 +10,16 @@ describe('bag tests', () => {
     expect(bag.isEmpty()).to.be.true;
     expect(bag.size()).to.be.equal(0);
   });
+
+  it('should be iterable', () => {
+    const a = [1, 2, 3, 4, 5];
+    a.forEach(n => bag.add(n));
+
+    for (let el of bag) {
+      expect(el).to.be.oneOf(a);
+    }
+
+    expect(bag.size()).to.be.equal(a.length);
+    expect(bag.isEmpty()).to.be.false;
+  });
 });
