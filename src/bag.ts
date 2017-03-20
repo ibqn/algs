@@ -33,8 +33,7 @@ export class Bag<Item> implements Iterable<Item> {
   public toString = (): string => {
     let s = '';
     for (let item of this) {
-        s += item.toString();
-        s += ' ';
+        s += `${item} `;
     }
     return s;
   }
