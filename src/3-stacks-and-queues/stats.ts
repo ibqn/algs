@@ -8,7 +8,6 @@ import { StdData } from '../std-data';
 import { Bag } from '../bag';
 
 
-
 // Main code
 const main = function() {
   const argv = yargs
@@ -39,13 +38,10 @@ const main = function() {
   let stdData = new StdData(content);
 
   const numbers = new Bag<number>();
-
   while (!stdData.empty()) {
-    const value = +stdData.get();
-    numbers.add(value);
-    process.stdout.write(`${value} `);
+    numbers.add(+stdData.get());
   }
-  process.stdout.write('\n');
+  console.log(`${numbers}`);
 
   const n = numbers.size();
 

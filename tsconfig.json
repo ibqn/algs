@@ -16,8 +16,11 @@
   },
 
   "filesGlob": [
-    "src/**/*.ts",
-    "!node_modules/**",
-    "node_modules/@types/**"
+    "src/**/*.ts"
+  ],
+
+  "exclude": [
+    "node_modules/**",
+    "!node_modules/@types/**"
   ]
 }

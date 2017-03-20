@@ -1,7 +1,7 @@
 import { Node, NodeIterator } from './linked-node';
 
 
-export class Bag<Item> implements Iterable<Item> {
+export class Stack<Item> implements Iterable<Item> {
   private first: Node<Item>;    // beginning of bag
   private n: number;            // number of elements in bag
 
@@ -22,7 +22,7 @@ export class Bag<Item> implements Iterable<Item> {
     return this.n;
   }
 
-  add(item: Item) {
+  push(item: Item) {
     const oldfirst = this.first;
     this.first = new Node<Item>();
     this.first.item = item;
@@ -30,7 +30,17 @@ export class Bag<Item> implements Iterable<Item> {
     this.n++;
   }
 
-  public toString = (): string => {
+  pop(): Item {
+    if (this.isEmpty()) {
+      throw new Error('stack underflow');
+    }
+    const item = this.first.item;
+    this.first = this.first.next;
+    this.n --;
+    return item;
+  }
+
+  toString(): string {
     let s = '';
     for (let item of this) {
         s += item.toString();
