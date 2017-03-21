@@ -40,11 +40,10 @@ export class Stack<Item> implements Iterable<Item> {
     return item;
   }
 
-  toString(): string {
+  public toString = (): string => {
     let s = '';
     for (let item of this) {
-        s += item.toString();
-        s += ' ';
+        s += `${item} `;
     }
     return s;
   }
