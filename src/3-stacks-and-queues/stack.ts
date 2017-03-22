@@ -1,8 +1,5 @@
-import * as readline from 'readline';
 import * as fs from 'fs';
 import * as yargs from 'yargs';
-import * as chalk from 'chalk';
-import * as math from 'mathjs';
 
 import { StdData } from '../std-data';
 import { Stack } from '../stack';
@@ -12,10 +9,10 @@ import { Stack } from '../stack';
 const main = function() {
   const argv = yargs
     .usage('Usage: [options]')
-    .example('$0 -f data.txt', 'Loads data from file')
+    .example('$0 -f tobe.txt', 'Loads data from file')
     .alias('f', 'file')
     .nargs('f', 1)
-    .default('f', 'data.txt')
+    .default('f', 'tobe.txt')
     .describe('f', 'Specify file with data')
     .demandOption(['f'])
     .help('h')
