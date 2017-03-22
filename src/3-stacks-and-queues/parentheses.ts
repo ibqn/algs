@@ -5,21 +5,11 @@ import { StdData } from '../std-data';
 import { Stack } from '../stack';
 
 
-const LEFT_PAREN     = '(';
-const RIGHT_PAREN    = ')';
-
-const LEFT_BRACE     = '{';
-const RIGHT_BRACE    = '}';
-
-const LEFT_BRACKET   = '[';
-const RIGHT_BRACKET  = ']';
-
-const BRA = [LEFT_PAREN, LEFT_BRACE, LEFT_BRACKET];
-const KET = [RIGHT_PAREN, RIGHT_BRACE, RIGHT_BRACKET];
+const BRA = '({['; // left paren, brace and bracket
+const KET = ')}]'; // right paren, brace and bracket
 
 const isBalanced = (s: string): boolean => {
   const stack = new Stack<string>();
-
   let i;
   for (let c of s) {
     if (BRA.indexOf(c) !== -1) {
@@ -58,7 +48,7 @@ const main = function() {
     } catch (e) {
       console.error(`Could not open file '${argv.file}'`);
     }
-}
+  }
 
   for (let d of content) {
     console.log(`${d} is${isBalanced(d) ? '' : ' not'} balanced`);
