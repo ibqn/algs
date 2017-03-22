@@ -17,7 +17,6 @@ const main = function() {
     .demandOption(['f'])
     .help('h')
     .alias('h', 'help')
-    .default('q', false)
     .epilog(
       'stack - reads data from file and pushes or pops them on/from stack'
     )

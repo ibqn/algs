@@ -3,7 +3,11 @@ import { Stack } from './stack';
 
 
 describe('stack tests', () => {
-  const stack = new Stack<number>();
+  let stack: Stack<number>;
+
+  beforeEach(() => {
+    stack = new Stack<number>();
+  });
 
   it('should be intialized', () => {
     expect(stack).to.exist;
@@ -21,5 +25,9 @@ describe('stack tests', () => {
 
     expect(stack.size()).to.be.equal(a.length);
     expect(stack.isEmpty()).to.be.false;
+  });
+
+  it('should verify push and pop', () => {
+
   });
 });

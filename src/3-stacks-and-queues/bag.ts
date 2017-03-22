@@ -17,7 +17,6 @@ const main = function() {
     .demandOption(['f'])
     .help('h')
     .alias('h', 'help')
-    .default('q', false)
     .epilog(
       'bag - reads data from file and adds it to the bag'
     )
