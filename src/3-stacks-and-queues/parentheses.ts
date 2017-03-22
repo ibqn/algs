@@ -20,20 +20,13 @@ const KET = [RIGHT_PAREN, RIGHT_BRACE, RIGHT_BRACKET];
 const isBalanced = (s: string): boolean => {
   const stack = new Stack<string>();
 
+  let i;
   for (let c of s) {
     if (BRA.indexOf(c) !== -1) {
       stack.push(c);
-      continue;
-    }
-    for (let i = 0; i < KET.length; i ++) {
-      if (c === KET[i]) {
-        if (stack.isEmpty()) {
-          return false;
-        }
-        if (stack.pop() !== BRA[i]) {
-          return false;
-        }
-        continue;
+    } else if ((i = KET.indexOf(c)) !== -1) {
+      if (stack.isEmpty() || (stack.pop() !== BRA[i])) {
+        return false;
       }
     }
   }
