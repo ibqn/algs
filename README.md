@@ -39,3 +39,10 @@ To download them at once the following bash one-liner can be used:
 ```
 bash -c 'for s in {tiny,lange}{T,W}; do curl -O "http://algs4.cs.princeton.edu/11model/${s}${m}.txt"; done'
 ```
+
+## 3 Stacks and Queues
+```
+curl -O http://algs4.cs.princeton.edu/13stacks/tobe.txt
+more tobe.txt
+to be or not to - be - - that - - - is
+```
