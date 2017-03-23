@@ -21,7 +21,6 @@ const main = function() {
     .nargs('w', 1)
     .default('w', 'tinyT.txt')
     .describe('w', 'Specify whitelist file with integers')
-    .default('q', false)
     .epilog(
       'binary-searching prints values which are not in the whitelist file'
     )

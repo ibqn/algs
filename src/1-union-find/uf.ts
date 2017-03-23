@@ -1,7 +1,5 @@
-import * as readline from 'readline';
 import * as fs from 'fs';
 import * as yargs from 'yargs';
-import * as chalk from 'chalk';
 
 import { StdData } from '../std-data';
 
@@ -94,9 +92,11 @@ const main = function() {
       continue;
     }
     wqu.union(p, q);
-    if (!argv.quiet) { console.log(p + '--' + q); }
+    if (!argv.quiet) {
+      console.log(`${p} -- ${q}`);
+    }
   }
-  console.log(wqu.count() + ' components');
+  console.log(`${wqu.count()} components`);
 };
 
 // Main loop

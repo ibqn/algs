@@ -35,8 +35,6 @@ const main = function() {
     .demandOption(['f'])
     .help('h')
     .alias('h', 'help')
-    .alias('q', 'quiet')
-    .default('q', false)
     .epilog(
       'three-sum counts the number of triples which sum to zero'
     )

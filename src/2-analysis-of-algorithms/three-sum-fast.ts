@@ -52,8 +52,6 @@ const main = function() {
     .demandOption(['f'])
     .help('h')
     .alias('h', 'help')
-    .alias('q', 'quiet')
-    .default('q', false)
     .epilog(
       'three-sum-fast counts the number of triples which sum to zero'
     )

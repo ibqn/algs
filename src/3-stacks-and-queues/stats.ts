@@ -18,7 +18,6 @@ const main = function() {
     .demandOption(['f'])
     .help('h')
     .alias('h', 'help')
-    .default('q', false)
     .epilog(
       'stats reads numbers from file and prints ' +
       'their mean and standard deviation'

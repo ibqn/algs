@@ -1,7 +1,5 @@
-import * as readline from 'readline';
 import * as fs from 'fs';
 import * as yargs from 'yargs';
-import * as chalk from 'chalk';
 
 import { StdData } from '../std-data';
 
@@ -83,9 +81,11 @@ const main = function() {
       continue;
     }
     uf.union(p, q);
-    if (!argv.quiet) { console.log(p + '--' + q); }
+    if (!argv.quiet) {
+      console.log(`${p} -- ${q}`);
+    }
   }
-  console.log(uf.count() + ' components');
+  console.log(`${uf.count()} components`);
 };
 
 // Main loop
