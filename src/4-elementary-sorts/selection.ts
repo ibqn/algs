@@ -1,11 +1,9 @@
-import { Comparable } from '../comparable';
+import * as fs from 'fs';
+import * as yargs from 'yargs';
+
 import { Selection } from '../selection';
 
 import '../comparable-string';
-
-
-import * as fs from 'fs';
-import * as yargs from 'yargs';
 
 import { StdData } from '../std-data';
 
@@ -26,6 +24,7 @@ const main = function() {
     )
     .argv;
 
+  // default fallback input
   let input = 'S O R T E X A M P L E';
   if (argv.file) {
     try {
@@ -35,7 +34,7 @@ const main = function() {
     }
   }
   const stdData = new StdData(input);
-  let content: Comparable[] = stdData.get_all();
+  let content: string[] = stdData.get_all();
 
   Selection.sort(content);
 
