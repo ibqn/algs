@@ -51,3 +51,18 @@ to be or not to - be - - that - - - is
 ```
 
 ## 4 Elementary Sorts
+Two data sets are available: [tiny.txt](http://algs4.cs.princeton.edu/21elementary/tiny.txt) and [words3.txt](http://algs4.cs.princeton.edu/21elementary/words3.txt).
+```bash
+$ more tiny.txt
+S O R T E X A M P L E
+
+$ cat words3.txt
+bed bug dad yes zoo
+now for tip ilk dim
+tag jot sob nob sky
+hut men egg few jay
+owl joy rap gig wee
+was wad fee tap tar
+dug jam all bad yet
+
+```
