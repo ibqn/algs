@@ -49,3 +49,5 @@ The content of the `tobe.txt` file is
 $ more tobe.txt
 to be or not to - be - - that - - - is
 ```
+
+## 4 Elementary Sorts
