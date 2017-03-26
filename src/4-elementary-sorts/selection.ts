@@ -4,6 +4,7 @@ import * as yargs from 'yargs';
 import { Selection } from '../selection';
 
 import '../comparable-string';
+import { show } from '../sorting-methods';
 
 import { StdData } from '../std-data';
 
@@ -37,10 +38,7 @@ const main = function() {
   let content: string[] = stdData.get_all();
 
   Selection.sort(content);
-
-  for (let d of content) {
-    console.log(d);
-  }
+  show(content);
 };
 
 // Main loop
