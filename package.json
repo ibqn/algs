@@ -7,6 +7,7 @@
   "scripts": {
     "start": "lite-server",
     "test": "tsc && mocha src/**.spec.js",
+    "clean": "find ./src -iname '*.js*' -delete",
     "tsc": "tsc",
     "tsc:w": "tsc --watch",
     "lint": "tslint  -t verbose -c tslint.json ./src/**/*.ts"
