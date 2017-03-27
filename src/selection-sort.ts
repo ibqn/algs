@@ -1,8 +1,9 @@
 import { Comparable } from './comparable';
 import { less, exch } from './sorting-methods';
 
+
 export class Selection {
-  static sort(c: Comparable[]): void {
+  static sort(c: Comparable[]): Comparable[] {
     const n = c.length;
     for (let i = 0; i < n; i ++) {
       let min = i;
@@ -13,6 +14,7 @@ export class Selection {
       }
       exch(c, i, min);
     }
+    return c;
   }
 
   private constructor() {}
