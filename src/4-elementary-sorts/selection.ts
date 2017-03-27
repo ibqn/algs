@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as yargs from 'yargs';
 
-import { Selection } from '../selection';
+import { Selection } from '../selection-sort';
 
 import '../comparable-string';
 import { show } from '../sorting-methods';
