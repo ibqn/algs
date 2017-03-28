@@ -1,8 +1,8 @@
 import { Comparable } from './comparable';
 
 declare global {
-  interface String extends Comparable {
-    compareTo(a: Comparable): number;
+  interface String extends Comparable<string> {
+    compareTo(a: string): number;
   }
 }
 

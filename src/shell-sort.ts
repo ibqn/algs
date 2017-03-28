@@ -4,7 +4,7 @@ import { less, exch } from './sorting-methods';
 
 
 export class Shell {
-  static sort(c: Comparable[]): Comparable[] {
+  static sort<T>(c: Comparable<T>[]): Comparable<T>[] {
     const n = c.length;
 
     // 3x+1 increment sequence:  1, 4, 13, 40, 121, 364, 1093, ...
@@ -16,8 +16,8 @@ export class Shell {
     while (h >= 1) {
       // h-sort the array
       for (let i = h; i < n; i ++) {
-        for (let j = i; j >= h && less(c[j], c[j - h]); j -= h) {
-          exch(c, j, j - h);
+        for (let j = i; j >= h && less<T>(c[j], c[j - h]); j -= h) {
+          exch<T>(c, j, j - h);
         }
       }
       h = math.floor(h / 3);

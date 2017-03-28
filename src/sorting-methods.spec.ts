@@ -14,10 +14,10 @@ describe('sorting methods', () => {
   it('test less', () => {
     expect(less(7, 9)).to.be.true;
     numbers.forEach(i => {
-      expect(less(11, i)).to.be.false;
+      expect(less<number>(11, i)).to.be.false;
     });
 
-    expect(less('B', 'F')).to.be.true;
+    expect(less<string>('B', 'F')).to.be.true;
     letters.forEach(l => {
       expect(less('Y', l)).to.be.false;
     });
@@ -25,11 +25,11 @@ describe('sorting methods', () => {
 
   it('test sorted', () => {
     expect(sorted(letters)).to.be.false;
-    expect(sorted([3, 13, 55, 77])).to.be.true;
+    expect(sorted<number>([3, 13, 55, 77])).to.be.true;
     expect(sorted(letters, 1, 3)).to.be.true;
 
     expect(sorted(numbers)).to.be.false;
-    expect(sorted(['C', 'D', 'G', 'W'])).to.be.true;
+    expect(sorted<string>(['C', 'D', 'G', 'W'])).to.be.true;
     expect(sorted(numbers, 1, 4)).to.be.true;
   });
 

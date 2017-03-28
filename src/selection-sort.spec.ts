@@ -13,16 +13,16 @@ describe('selection sort', () => {
 
   it('letters should be sorted', () => {
     const n = letters.length;
-    Selection.sort(letters);
+    Selection.sort<string>(letters);
     expect(letters.length).to.be.equal(n);
     expect(sorted(letters)).to.be.true;
   });
 
   it('numbers should be sorted', () => {
     const n = numbers.length;
-    Selection.sort(numbers);
+    Selection.sort<number>(numbers);
     expect(numbers.length).to.be.equal(n);
-    expect(sorted(numbers)).to.be.true;
+    expect(sorted<number>(numbers)).to.be.true;
   });
 
 });
