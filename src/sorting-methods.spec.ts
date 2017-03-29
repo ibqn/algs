@@ -26,11 +26,15 @@ describe('sorting methods', () => {
   it('test sorted', () => {
     expect(sorted(letters)).to.be.false;
     expect(sorted<number>([3, 13, 55, 77])).to.be.true;
-    expect(sorted(letters, 1, 3)).to.be.true;
 
     expect(sorted(numbers)).to.be.false;
     expect(sorted<string>(['C', 'D', 'G', 'W'])).to.be.true;
     expect(sorted(numbers, 1, 4)).to.be.true;
+  });
+
+  it('test sorted with range', () => {
+    expect(sorted([3, 4, 5, 1], 2)).to.be.true;
+    expect(sorted(letters, 1, 3)).to.be.true;
   });
 
 });
