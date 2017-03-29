@@ -2,8 +2,6 @@ import * as fs from 'fs';
 import * as yargs from 'yargs';
 
 import { Selection } from '../selection-sort';
-
-import '../comparable-string';
 import { show } from '../sorting-methods';
 
 import { StdData } from '../std-data';
@@ -19,6 +17,9 @@ const main = function() {
     .describe('f', 'Specify file with data')
     .help('h')
     .alias('h', 'help')
+    .alias('n', 'numeric')
+    .describe('n', 'Switch between lexicalal and numerical sorting')
+    .default('n', false)
     .epilog(
       'selection - reads data from a file ' +
       'and sorts it using selection algorithm'
@@ -35,7 +36,10 @@ const main = function() {
     }
   }
   const stdData = new StdData(input);
-  let content: string[] = stdData.get_all();
+  let content: number[] | string[] = stdData.get_all();
+  if (argv.numeric) {
+    content = content.map(d => +d) as number[];
+  }
 
   Selection.sort(content);
   show(content);
