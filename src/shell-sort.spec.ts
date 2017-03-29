@@ -1,9 +1,6 @@
 import { expect } from 'chai';
 
 import { Comparable } from './comparable';
-import './comparable-string';
-import './comparable-number';
-
 import { Shell } from './shell-sort';
 import { sorted, show } from './sorting-methods';
 

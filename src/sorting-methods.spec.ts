@@ -1,11 +1,8 @@
 import { expect } from 'chai';
 
 import { Comparable } from './comparable';
-import './comparable-string';
-import './comparable-number';
-
-
 import { sorted, less, exch } from './sorting-methods';
+
 
 describe('sorting methods', () => {
   const letters = 'S O R T E X A M P L E'.split(' ');

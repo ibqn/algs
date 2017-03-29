@@ -1,6 +1,9 @@
 import { Comparable } from './comparable';
 import { less, exch } from './sorting-methods';
 
+import './comparable-string';
+import './comparable-number';
+
 
 export class Insertion {
   static sort<T>(c: Comparable<T>[]): Comparable<T>[] {

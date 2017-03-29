@@ -1,5 +1,8 @@
 import { Comparable } from './comparable';
 
+import './comparable-string';
+import './comparable-number';
+
 
 export function less<T>(v: Comparable<T>, w: Comparable<T>): boolean {
   return v.compareTo(w) < 0;
