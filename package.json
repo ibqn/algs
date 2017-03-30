@@ -6,11 +6,11 @@
   "main": "index.js",
   "scripts": {
     "start": "lite-server",
-    "test": "tsc && mocha src/**.spec.js",
+    "test": "tsc && mocha ./src/**.spec.js",
     "clean": "find ./src -iname '*.js*' -delete",
     "tsc": "tsc",
     "tsc:w": "tsc --watch",
-    "lint": "tslint  -t verbose -c tslint.json ./src/**/*.ts"
+    "lint": "tslint --project ./tsconfig.json --type-check --format stylish --config ./tslint.json ./src/**/*.ts"
   },
   "author": "ibqn",
   "license": "ISC",
@@ -29,7 +29,7 @@
     "@types/yargs": "^6.6.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "tslint": "^4.5.1",
+    "tslint": "^5.0.0",
     "typescript": "^2.2.2"
   }
 }
