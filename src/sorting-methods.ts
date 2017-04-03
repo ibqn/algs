@@ -42,3 +42,28 @@ export function sorted<T>(v: Comparable<T>[], one?: number, two?: number): boole
   }
   return true;
 }
+
+// partition the subarray a[lo..hi] so that a[lo..j-1] <= a[j] <= a[j+1..hi]
+// and return the index j.
+export function partition<T>(v: Comparable<T>[], lo: number, hi: number): number {
+  let i = lo;
+  let j = hi + 1;
+  let k: Comparable<T> = v[lo];
+  while (true) {
+    // find item on lo to swap
+    while (less<T>(v[++i], k)) {
+      if (i === hi) { break; }
+    }
+    // find item on hi to swap
+    while (less<T>(k, v[--j])) {
+      if (j === lo) { break; } // redundant since a[lo] acts as sentinel
+    }
+    // check if pointers cross
+    if (i >= j) { break; }
+    exch<T>(v, i, j);
+  }
+  // put partitioning item v at a[j]
+  exch<T>(v, lo, j);
+  // now, v[lo .. j-1] <= v[j] <= v[j+1 .. hi]
+  return j;
+}
