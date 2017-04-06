@@ -4,11 +4,17 @@ import { expect } from 'chai';
 
 import { Comparable } from './comparable';
 import { sorted, less, exch, partition, show } from './sorting-methods';
+import { StdRandom } from './std-random';
 
 
 describe('sorting methods', () => {
-  const letters = 'S O R T E X A M P L E'.split(' ');
-  const numbers = [10, 6, 7, 8, 9, 5, 4, 3, 2, 1];
+  let letters: string[];
+  let numbers: number[];
+
+  beforeEach(() => {
+    letters = 'S O R T E X A M P L E'.split(' ');
+    numbers = [10, 6, 7, 8, 9, 5, 4, 3, 2, 1];
+  });
 
   it('test less', () => {
     expect(less(7, 9)).to.be.true;
@@ -37,7 +43,7 @@ describe('sorting methods', () => {
   });
 
   it('test partition', () => {
-    const num = [6, 10, 7, 8, 9, 5, 4, 3, 2, 1];
+    const num = StdRandom.shuffle<number>(numbers);
 
     const p: number = partition(num, 0, num.length - 1);
     expect(p).to.exist;
