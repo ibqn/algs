@@ -10,14 +10,14 @@
     "clean": "find ./src -iname '*.js*' -delete",
     "tsc": "tsc",
     "tsc:w": "tsc --watch",
-    "lint": "tslint --project ./tsconfig.json --type-check --format stylish --config ./tslint.json ./src/**/*.ts"
+    "lint": "tslint --format verbose --config ./tslint.json ./src/**/*.ts"
   },
   "author": "ibqn",
   "license": "ISC",
   "dependencies": {
     "chalk": "^1.1.3",
     "lite-server": "^2.3.0",
-    "mathjs": "^3.10.1",
+    "mathjs": "^3.11.4",
     "yargs": "^7.0.2"
   },
   "devDependencies": {
@@ -29,7 +29,7 @@
     "@types/yargs": "^6.6.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "tslint": "^5.0.0",
+    "tslint": "^4.5.1",
     "typescript": "^2.2.2"
   }
 }
