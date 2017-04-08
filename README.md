@@ -15,7 +15,7 @@ bash -c 'for s in tiny medium large; do curl -O "http://algs4.cs.princeton.edu/1
 
 
 ## 2 Analysis of Algorithms
-The staightforward implementation of the three sum caltulaion.
+The straightforward implementation of the three sum calculation.
 ```bash
 $ node three-sum.js
 size of the data set is 1000
@@ -31,11 +31,11 @@ size of the data set is 2000
 ```bash
 bash -c 'for s in {1,2,4,8,16,32}K 1M; do curl -O "http://algs4.cs.princeton.edu/14analysis/${s}ints.txt"; done'
 ```
-Data files:   
+Data files:
 * [tinyW.txt](http://algs4.cs.princeton.edu/11model/tinyW.txt) and [tinyT.txt](http://algs4.cs.princeton.edu/11model/tinyT.txt)
 * [largeW.txt](http://algs4.cs.princeton.edu/11model/largeW.txt) and [largeT.txt](http://algs4.cs.princeton.edu/11model/largeT.txt)
 
-To download them at once the following bash one-liner can be used: 
+To download them at once the following bash one-liner can be used:
 ```bash
 bash -c 'for s in {tiny,lange}{T,W}; do curl -O "http://algs4.cs.princeton.edu/11model/${s}${m}.txt"; done'
 ```
