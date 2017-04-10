@@ -37,7 +37,7 @@ Data files:
 
 To download them at once the following bash one-liner can be used:
 ```bash
-bash -c 'for s in {tiny,lange}{T,W}; do curl -O "http://algs4.cs.princeton.edu/11model/${s}${m}.txt"; done'
+bash -c 'for s in {tiny,large}{T,W}; do curl -O "http://algs4.cs.princeton.edu/11model/${s}${m}.txt"; done'
 ```
 
 ## 3 Stacks and Queues
@@ -64,5 +64,10 @@ hut men egg few jay
 owl joy rap gig wee
 was wad fee tap tar
 dug jam all bad yet
-
 ```
+
+## 5 Mergesort
+
+## 6 Quicksort
+
+## 7 Priority Queues
