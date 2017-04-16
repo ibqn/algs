@@ -12,7 +12,11 @@ export class Merge {
     return c;
   }
 
-  private static aux_sort<T>(c: Comparable<T>[], aux: Comparable<T>[], lo: number, hi: number): void {
+  private static aux_sort<T>(
+    c: Comparable<T>[],
+    aux: Comparable<T>[],
+    lo: number, hi: number
+  ): void {
     if (hi <= lo) {
       return;
     }
