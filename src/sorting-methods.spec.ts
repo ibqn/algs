@@ -3,7 +3,7 @@
 import { expect } from 'chai';
 
 import { Comparable } from './comparable';
-import { sorted, less, exch, partition, show } from './sorting-methods';
+import { sorted, less, exch, partition, show, merge } from './sorting-methods';
 import { StdRandom } from './std-random';
 
 
@@ -55,6 +55,19 @@ describe('sorting methods', () => {
     for (let i = p + 1; i < num.length; i ++) {
       expect(less(num[p], num[i])).to.be.true;
     }
+  });
+
+  it('test merge function', () => {
+    let one = [3, 5, 7, 9, 15],
+        two = [1, 4, 6, 8, 9, 12, 13];
+    let arr: Comparable<number>[] = one.concat(two);
+    let aux: Comparable<number>[] = new Array(arr.length);
+    arr = merge<number>(arr, aux, 0, one.length - 1, arr.length - 1);
+    expect(sorted(arr)).to.be.true;
+
+    arr = two.concat(one);
+    arr = merge<number>(arr, aux, 0, two.length - 1, arr.length - 1);
+    expect(sorted(arr)).to.be.true;
   });
 
 });

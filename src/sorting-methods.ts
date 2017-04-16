@@ -45,9 +45,12 @@ export function sorted<T>(v: Comparable<T>[], one?: number, two?: number): boole
 
 // partition the subarray a[lo..hi] so that a[lo..j-1] <= a[j] <= a[j+1..hi]
 // and return the index j.
-export function partition<T>(v: Comparable<T>[], lo: number, hi: number): number {
-  let i = lo;
-  let j = hi + 1;
+export function partition<T>(
+  v: Comparable<T>[],
+  lo: number, hi: number
+): number {
+  let i = lo,
+      j = hi + 1;
   let k: Comparable<T> = v[lo];
   while (true) {
     // find item on lo to swap
@@ -66,4 +69,29 @@ export function partition<T>(v: Comparable<T>[], lo: number, hi: number): number
   exch<T>(v, lo, j);
   // now, v[lo .. j-1] <= v[j] <= v[j+1 .. hi]
   return j;
+}
+
+export function merge<T>(
+  v: Comparable<T>[],
+  aux: Comparable<T>[],
+  lo: number, mid: number, hi: number
+): Comparable<T>[] {
+  // copy to aux array [aux = v.slice();]
+  for (let i = lo; i <= hi; i ++) {
+    aux[i] = v[i];
+  }
+  let i = lo,
+      j = mid + 1;
+  for (let k = lo; k <= hi; k ++) {
+    if (i > mid) {
+      v[k] = aux[j ++];
+    } else if (j > hi) {
+      v[k] = aux[i ++];
+    } else if (less<T>(aux[j], aux[i])) {
+      v[k] = aux[j ++];
+    } else {
+      v[k] = aux[i ++];
+    }
+  }
+  return v;
 }
