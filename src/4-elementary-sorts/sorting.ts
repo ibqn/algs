@@ -27,8 +27,7 @@ export function main(name?: string) {
     .describe('n', 'Switch between lexicalal and numerical sorting')
     .default('n', false)
     .epilog(
-      'selection - reads data from a file ' +
-      'and sorts it using selection algorithm'
+      `${name} - reads data from a file and sorts it using selected algorithm`
     )
     .argv;
 
