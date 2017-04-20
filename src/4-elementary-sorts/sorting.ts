@@ -5,6 +5,7 @@ import { Comparable } from '../comparable';
 
 import { Selection }  from '../selection-sort';
 import { Merge }      from '../merge-sort';
+import { MergeBU }      from '../merge-bu-sort';
 import { Shell }      from '../shell-sort';
 import { Insertion }  from '../insertion-sort';
 
@@ -33,6 +34,7 @@ export function main(name?: string) {
 
   const sorting_methods = {
     'merge': Merge.sort,
+    'merge-bu': MergeBU.sort,
     'insertion': Insertion.sort,
     'shell': Shell.sort,
     'selection': Selection.sort,
