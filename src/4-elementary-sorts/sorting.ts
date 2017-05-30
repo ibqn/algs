@@ -8,6 +8,7 @@ import { Merge }      from '../merge-sort';
 import { MergeBU }      from '../merge-bu-sort';
 import { Shell }      from '../shell-sort';
 import { Insertion }  from '../insertion-sort';
+import { Quick }      from '../quick-sort';
 
 import { show } from '../sorting-methods';
 
@@ -38,6 +39,7 @@ export function main(name?: string) {
     'insertion': Insertion.sort,
     'shell': Shell.sort,
     'selection': Selection.sort,
+    'quick': Quick.sort,
   };
 
   // create a function pointer for the desired sorting method!
