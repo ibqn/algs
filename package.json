@@ -21,15 +21,15 @@
     "yargs": "^8.0.1"
   },
   "devDependencies": {
-    "@types/chai": "^3.5.2",
+    "@types/chai": "^4.0.0",
     "@types/chalk": "^0.4.31",
     "@types/mathjs": "0.0.34",
     "@types/mocha": "^2.2.41",
-    "@types/node": "^7.0.22",
+    "@types/node": "^7.0.29",
     "@types/yargs": "^6.6.0",
-    "chai": "^4.0.0",
+    "chai": "^4.0.2",
     "mocha": "^3.4.2",
-    "tslint": "^5.3.2",
-    "typescript": "^2.3.3"
+    "tslint": "^5.4.3",
+    "typescript": "^2.3.4"
   }
 }
