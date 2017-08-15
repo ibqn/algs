@@ -3,7 +3,7 @@
 import { expect } from 'chai';
 
 import { Comparable } from './comparable';
-import { sorted, less, exch, partition, show, merge } from './sorting-methods';
+import { sorted, less, partition, merge } from './sorting-methods';
 import { StdRandom } from './std-random';
 
 

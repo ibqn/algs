@@ -1,5 +1,3 @@
-import * as math from 'mathjs';
-
 import { Comparable } from './comparable';
 import { partition } from './sorting-methods';
 import { StdRandom } from './std-random';

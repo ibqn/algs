@@ -2,9 +2,8 @@
 
 import { expect } from 'chai';
 
-import { Comparable } from './comparable';
 import { Selection } from './selection-sort';
-import { sorted, show } from './sorting-methods';
+import { sorted} from './sorting-methods';
 
 describe('selection sort', () => {
   const letters = 'S O R T E X A M P L E'.split(' ');

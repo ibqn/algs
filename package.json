@@ -8,7 +8,7 @@
     "start": "lite-server",
     "test": "tsc && mocha ./src/**.spec.js",
     "clean": "find ./src -iname '*.js*' -delete",
-    "tsc": "tsc",
+    "tsc": "tsc --project tsconfig.json",
     "tsc:w": "tsc --watch",
     "lint": "tslint --format verbose --config ./tslint.json --type-check --project ./tsconfig.json"
   },
@@ -30,6 +30,6 @@
     "chai": "^4.0.2",
     "mocha": "^3.4.2",
     "tslint": "^5.4.3",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.2"
   }
 }

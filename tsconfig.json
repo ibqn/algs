@@ -3,13 +3,18 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
+    "pretty": true,
+    "newLine": "LF",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": true,
+    "strict": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "suppressImplicitAnyIndexErrors": true,
     "sourceMap":  true,
-    "rootDir": ".",
+    "rootDir": "./",
     "typeRoots": [
       "node_modules/@types"
     ]
