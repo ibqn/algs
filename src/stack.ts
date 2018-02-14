@@ -36,7 +36,7 @@ export class Stack<Item> implements Iterable<Item> {
     }
     const item = this.first.item;
     this.first = this.first.next;
-    this.n --;
+    this.n--;
     return item;
   }
 
