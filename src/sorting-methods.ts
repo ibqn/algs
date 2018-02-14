@@ -77,8 +77,8 @@ export function merge<T>(
   lo: number, mid: number, hi: number
 ): Comparable<T>[] {
   // copy to aux array [aux = v.slice();]
-  for (let i = lo; i <= hi; i ++) {
-    aux[i] = v[i];
+  for (let e = lo; e <= hi; e ++) {
+    aux[e] = v[e];
   }
   let i = lo,
       j = mid + 1;
