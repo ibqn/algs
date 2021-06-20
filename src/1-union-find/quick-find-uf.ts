@@ -1,94 +1,98 @@
-import * as fs from 'fs';
-import * as yargs from 'yargs';
+import fs from 'fs'
+import yargs from 'yargs'
 
-import { StdData } from '../std-data';
-
+import { StdData } from '../std-data'
 
 class QuickFindUF {
-  private id: number[];
-  private cnt: number;
+  private id: number[]
+  private cnt: number
 
   constructor(n: number) {
-    this.cnt = n;
-    this.id = new Array(n);
+    this.cnt = n
+    this.id = new Array(n)
 
-    for (let i = 0; i < n; i ++) {
-      this.id[i] = i;
+    for (let i = 0; i < n; i++) {
+      this.id[i] = i
     }
   }
 
   count(): number {
-    return this.cnt;
+    return this.cnt
   }
 
   find(p: number): number {
-    return this.id[p];
+    return this.id[p]
   }
 
   connected(p: number, q: number): boolean {
-    return this.id[p] === this.id[q];
+    return this.id[p] === this.id[q]
   }
 
   union(p: number, q: number): void {
-    const pId = this.id[p];
-    const qId = this.id[q];
+    const pId = this.id[p]
+    const qId = this.id[q]
 
     if (pId === qId) {
-      return;
+      return
     }
 
-    for (let i = 0; i < this.id.length; i ++) {
+    for (let i = 0; i < this.id.length; i++) {
       if (this.id[i] === pId) {
-        this.id[i] = qId;
+        this.id[i] = qId
       }
     }
-    this.cnt --;
+    this.cnt--
   }
 }
 
 // Main code
-const main = function() {
+type Args = {
+  file: string
+  quiet: boolean
+}
+const main = function () {
   const argv = yargs
     .usage('Usage: [options]')
     .example('$0 -f tinyUF.txt', 'Loads pairs of integers from file')
-    .alias('f', 'file')
-    .nargs('f', 1)
-    .default('f', 'tinyUF.txt')
-    .describe('f', 'Specify file with pairs of integers')
-    .demandOption(['f'])
+    .alias('file', 'f')
+    .nargs('file', 1)
+    .default('file', 'tinyUF.txt')
+    .describe('file', 'Specify file with pairs of integers')
+    .demandOption(['file'])
     .help('h')
     .alias('h', 'help')
-    .alias('q', 'quiet')
-    .default('q', false)
+    .alias('quiet', 'q')
+    .default('quiet', false)
     .epilog(
       'union–find data type (also known as disjoint-sets data type) example'
-    )
-    .argv;
+    ).argv as Args
 
-  const content = fs.readFileSync(argv.file, {encoding: 'utf8'});
-  const stdData = new StdData(content);
+  const content = fs.readFileSync(argv.file, { encoding: 'utf8' })
+  const stdData = new StdData(content)
 
-  const n = +stdData.get(); // size of the union-find array
-  const uf = new QuickFindUF(n);
+  const n = +stdData.get() // size of the union-find array
+  const uf = new QuickFindUF(n)
 
-  console.log(`size of the disjoint-sets data type is ${n}`);
+  console.log(`size of the disjoint-sets data type is ${n}`)
 
   while (!stdData.empty()) {
-    const p = +stdData.get();
-    const q = +stdData.get();
+    const p = +stdData.get()
+    const q = +stdData.get()
     if (uf.connected(p, q)) {
-      if (!argv.quiet) { console.log('.'); }
-      continue;
+      if (!argv.quiet) {
+        console.log('.')
+      }
+      continue
     }
-    uf.union(p, q);
+    uf.union(p, q)
     if (!argv.quiet) {
-      console.log(`${p} -- ${q}`);
+      console.log(`${p} -- ${q}`)
     }
   }
-  console.log(`${uf.count()} components`);
-};
+  console.log(`${uf.count()} components`)
+}
 
 // Main loop
 if (require.main === module) {
-  main();
+  main()
 }

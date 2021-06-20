@@ -3,6 +3,7 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "pretty": true,
     "newLine": "LF",
     "emitDecoratorMetadata": true,
@@ -13,19 +14,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "suppressImplicitAnyIndexErrors": true,
-    "sourceMap":  true,
-    "rootDir": "./",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "sourceMap": true,
+    "rootDir": "./src",
+    "typeRoots": ["node_modules/@types"],
+    "outDir": "./build"
   },
 
-  "filesGlob": [
-    "src/**/*.ts"
-  ],
+  "filesGlob": ["src/**/*.ts"],
 
-  "exclude": [
-    "node_modules/**",
-    "!node_modules/@types/**"
-  ]
+  "exclude": ["node_modules/**", "!node_modules/@types/**"]
 }

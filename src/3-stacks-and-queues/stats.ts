@@ -1,66 +1,69 @@
-import * as fs from 'fs';
-import * as yargs from 'yargs';
-import * as math from 'mathjs';
+import fs from 'fs'
+import yargs from 'yargs'
+import math from 'mathjs'
 
-import { StdData } from '../std-data';
-import { Bag } from '../bag';
-
+import { StdData } from '../std-data'
+import { Bag } from '../bag'
 
 // Main code
-const main = function() {
+const main = function () {
+  type Args = {
+    file: string
+  }
+
   const argv = yargs
     .usage('Usage: [options]')
     .example('$0 -f data.txt', 'Loads integers from file')
-    .alias('f', 'file')
-    .nargs('f', 1)
-    .default('f', 'data.txt')
-    .describe('f', 'Specify file with integers')
-    .demandOption(['f'])
+    .alias('file', 'f')
+    .string('file')
+    .nargs('file', 1)
+    .default('file', 'data.txt')
+    .describe('file', 'Specify file with integers')
+    .demandOption(['file'])
     .help('h')
     .alias('h', 'help')
     .epilog(
       'stats reads numbers from file and prints ' +
-      'their mean and standard deviation'
-    )
-    .argv;
+        'their mean and standard deviation'
+    ).argv as Args
 
-  let content: string;
+  let content: string
   try {
-    content = fs.readFileSync(argv.file, {encoding: 'utf8'});
+    content = fs.readFileSync(argv.file, { encoding: 'utf8' })
   } catch (e) {
-    console.error(`Could not open file '${argv.file}'`);
-    console.log('Falling back to predefined data set');
-    content = '100 99 101 120 98 107 109 81 101 90';
+    console.error(`Could not open file '${argv.file}'`)
+    console.log('Falling back to predefined data set')
+    content = '100 99 101 120 98 107 109 81 101 90'
   }
-  let stdData = new StdData(content);
+  let stdData = new StdData(content)
 
-  const numbers = new Bag<number>();
+  const numbers = new Bag<number>()
   while (!stdData.empty()) {
-    numbers.add(+stdData.get());
+    numbers.add(+stdData.get())
   }
-  console.log(`${numbers}`);
+  console.log(`${numbers}`)
 
-  const n = numbers.size();
+  const n = numbers.size()
 
   // compute sample mean
-  let sum = 0.0;
+  let sum = 0.0
   for (let x of numbers) {
-    sum += x;
+    sum += x
   }
-  const mean = sum / n;
+  const mean = sum / n
 
   // compute sample standard deviation
-  sum = 0.0;
+  sum = 0.0
   for (let x of numbers) {
-    sum += (x - mean) * (x - mean);
+    sum += (x - mean) * (x - mean)
   }
-  let stddev = math.sqrt(sum / ( n - 1));
+  let stddev = math.sqrt(sum / (n - 1))
 
-  console.log(`Mean:    ${mean.toFixed(2)}`);
-  console.log(`Std dev: ${stddev.toFixed(2)}`);
-};
+  console.log(`Mean:    ${mean.toFixed(2)}`)
+  console.log(`Std dev: ${stddev.toFixed(2)}`)
+}
 
 // Main loop
 if (require.main === module) {
-  main();
+  main()
 }

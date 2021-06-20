@@ -1,6 +1,6 @@
-import { main } from './sorting';
+import { main } from './sorting'
 
 // Main loop
 if (require.main === module) {
-  main('shell');
+  main('shell')
 }
